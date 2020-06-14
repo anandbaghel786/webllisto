@@ -1,0 +1,47 @@
+<div>
+  <div class="card" style="width: 100%;">
+    <div class="card-header" style="font-weight: bold;
+        font-size: 2.5rem; letter-spacing: 4px;
+        color: #16e371; align-items: center;
+        display: flex;
+        justify-content: space-between;">
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form name="coinForm" novalidate class="form">
+          <div class="row">
+            <div class="col-md-12 p-4" style="height: auto;">
+              <div class="form-group">
+                <span style="font-size: 1.2rem; font-weight: bold;">Select Coin Bias</span>
+                <select name="coin" class="form-control" [(ngModel)]="coin" name="coin" (change)="displayUI();">
+                  <option value="" disabled selected>Select</option>
+                  <option value="H">Head</option>
+                  <option value="T">Tail</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12 d-flex justify-content-end">
+        <button class="btn btn-success ml-2" (click)="renderUI();">Render</button>
+
+      </div>
+      <div class="col-md-12">
+        <div style="display: flex; flex-direction: row;     justify-content: space-evenly;">
+          <div *ngFor="let items of coinbiasArr; let i = index;">
+            <div style="display: flex;
+            justify-content: space-around; flex-direction: column">
+              <span *ngFor="let item of items; let j = index;">
+                {{item}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

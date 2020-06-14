@@ -1,0 +1,36 @@
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <a href="p"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]='loginForm' novalidate class="form">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Email ID</label>
+              <input type="text" class="form-control" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" formControlName="email">
+              <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.pattern">Email is not valid</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="">Password</label>
+              <input type="text" class="form-control" [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" formControlName="password">
+              <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="btn btn-success mr-2" [disabled]="loginForm.invalid" (click)="login();" data-dismiss="modal">Login</button>
+      <button type="button" class="btn btn-danger" (click)="resetForm();">Reset</button>
+    </div>
+  </div>
+</div>
